@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    border: 8px solid #33333388;
+    padding: 5px;
+    background-color: #efefef;
+}
+
+.main {
+    background-color: orange;
+}
