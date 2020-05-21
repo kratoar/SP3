@@ -1,6 +1,57 @@
+@font-face {
+    font-family: "glowy";
+    src: url('../fonts/brillante.ttf');
+}
+
+@font-face {
+    font-family: "film";
+    src: url('../fonts/film_letters.ttf');
+}
+
+@font-face {
+    font-family: "film_fill";
+    src: url('../fonts/film_letters_filled.ttf');
+}
+
+@font-face {
+    font-family: "neon";
+    src: url('../fonts/neon.ttf');
+}
+
+.glowy {font-family: "glowy";}
+.film {font-family: "film";}
+.film_fill {font-family: "film_fill";}
+.neon {font-family: "neon";}
+
 body {
-    margin: 0;
-    border: 8px solid #33333388;
-    padding: 5px;
+    margin: 5px;
+    border: 8px solid #000000BB;
+    padding: 0;
     background-color: #efefef;
+}
+
+header {
+    position: fixed;
+    background-color: transparent;
+}
+
+header > * {
+    mix-blend-mode: difference;
+}
+
+main.main, aside.main {
+    display: inline-block;
+    vertical-align: top;
+}
+
+main {
+
+}
+
+aside {
+
+}
+
+.home-logo {
+
 }
