@@ -43,6 +43,9 @@ body {
     margin: 8px;
     border: 6px solid black;
     padding: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 header {
@@ -52,29 +55,35 @@ header {
     height: 50px;
     width: calc(100% - 36px);
     background-color: #000000BB;
-    z-index: 1;
+    z-index: 2;
 }
 
 header > h1 {
     margin: 0;
     text-align: center;
-    color: pink;
-    height: 35px;
+    height: 45px;
     box-shadow: red 0px 7px 7px;
     filter: drop-shadow(15px 15px 10px pink);
+    position: relative;
+    z-index: 2;
+}
+
+header > h1 > a {
+    text-decoration: none;
+    color: pink;
     font-size: 23px;
     letter-spacing: 9px;
-    top: 10px;
-    position: relative;
+    z-index: 2;
 }
 
 .white-mask {
     background-color: white;
     position: absolute;
-    height: calc(100vh - 36px);
-    width: calc(100vw - 36px);
+    height: calc(100vh - 28px);
+    width: calc(100vw - 28px);
     top: 0;
     left: 0;
+    z-index: 0;
 }
 
 .black-mask {
@@ -86,14 +95,14 @@ header > h1 {
     background-image: linear-gradient(180deg, #000, #111);
     background-image: url(../pics/banner.jpg);
     filter: saturate(1.5) brightness(0.7) hue-rotate(-20deg);
-    z-index: -1;
+    z-index: 1;
 }
 
 .main-nav {
     position: relative;
     margin-top: 50px;
     height: 60px;
-    z-index: 0;
+    z-index: 1;
     background-color: #000000BB;
 }
 
@@ -108,11 +117,15 @@ header > h1 {
 .nav-links > li {
     display: inline-block;
     vertical-align: middle;
+    margin: 20px 10px;
+}
+
+.nav-links > li > a {
     color: white;
     font-size: 17px;
     font-family: "glowy";
-    margin: 20px 10px;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 .nav-links > li:hover {
@@ -127,6 +140,7 @@ header > h1 {
 .nav-link:hover {
     padding: 3px;
     border-bottom-width: 3px;
+    cursor: pointer;
 }
 
 .main-nav .glow-border {
@@ -136,28 +150,48 @@ header > h1 {
     height: 5px;
     width: 100%;
     border-bottom: 5px solid #3ecae8;
-    filter: blur(2px);
+    filter: blur(1px);
 }
 
 .main-content {
     font-size: 0;
+    z-index: 1;
+    position: relative;
 }
 
 main.main, aside.main {
     background-color: #000000BB;
     display: inline-block;
     vertical-align: top;
-    height: calc(100vh - 151px);
-    min-height: calc(100vh - 151px);
-    max-height: calc(100vh - 151px);
+    height: 100%;
+    /* min-height: calc(100vh - 146px); */
+    max-height: calc(100vh - 146px);
 }
 
 main {
     width: 70%;
 }
 
+main.main {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 aside {
-    width: 30%;
+    width: calc(30% - 6px);
+    position: relative;
+    padding-left: 6px;
+}
+
+aside.main div.aside-border {
+    height: calc(100% + 2px);
+    width: 3px;
+    background-color: #3acae8;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    filter: blur(1px);
 }
 
 aside.main div.search {
@@ -168,13 +202,11 @@ aside.main div.search label {
     font-size: 13px;
     padding: 5px 2px;
     color: white;
-    margin: 5px 0;
-    border-bottom: 1px solid white;
     letter-spacing: 1px;
 }
 
 aside.main div.search input {
-    margin-top: 15px;
+    margin-top: 10px;
     border-radius: 14px;
     width: 90%;
     box-shadow: none;
@@ -184,5 +216,5 @@ aside.main div.search input {
 }
 
 aside.main div.search input::placeholder {
-    text-align: center;
+    text-align: left;
 }

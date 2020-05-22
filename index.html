@@ -10,17 +10,19 @@
         <base href="/" target="_self">
         <link rel="stylesheet" href="./css/main.css">
     </head>
-    <body class="white-mask">
+    <body>
+        <div class="white-mask"></div>
         <div class="black-mask background-image"></div>
         <header>
-                <h1 class="home-logo neon">Les Films de Plein Air</h1>
+            <h1 class="home-logo neon"><a href="/">Les Films de Plein Air</a></h1>
         </header>
         <div class="main-nav">
             <ul class="nav-links">
-                <li class="transition"><a class="nav-link">LE FESTIVAL</a></li>
-                <li class="transition"><a class="nav-link">LES FILMS</a></li>
-                <li class="transition"><a class="nav-link">RESERVER</a></li>
-                <li class="transition"><a class="nav-link">CONTACT</a></li>
+                <li class="transition"><a href="/festival" class="nav-link transition">LE FESTIVAL</a></li>
+                <li class="transition"><a href="/films" class="nav-link transition">LES FILMS</a></li>
+                <li class="transition"><a href="/reserver" class="nav-link transition">RESERVER</a></li>
+                <li class="transition"><a href="/contact" class="nav-link transition">CONTACT</a></li>
+                <li class="transition"><a href="/inscription" class="nav-link transition">INSCRIPTION</a></li>
             </ul>
             <div class="glow-border"></div>
         </div>
@@ -28,9 +30,10 @@
         <!-- <progress id="progress" value="1" max="100"></progress> -->
         <div class="main-content">
             <main class="main">
-                Main part
+                Home
             </main>
             <aside class="main">
+                <div class="aside-border"></div>
                 <div class="search">
                     <label class="glowy" for="search-movie">Nos films</label>
                     <input class="glowy" id="search-movie" type="search" placeholder="Cherchez un film ...">
