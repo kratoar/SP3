@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Les Films de Plein Air</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta name="description" content="Festival de films d'auteurs">
         <meta name="keywords" content="festival, festivals, films, film, auteur, auteurs">
@@ -10,24 +10,35 @@
         <base href="/" target="_self">
         <link rel="stylesheet" href="./css/main.css">
     </head>
-    <body>
+    <body class="white-mask">
+        <div class="black-mask background-image"></div>
         <header>
-            <h1 class="home-logo film_filled">Les Films de Plein Air</h1>
+                <h1 class="home-logo neon">Les Films de Plein Air</h1>
         </header>
-        <banner>
-            
-        </banner>
+        <div class="main-nav">
+            <ul class="nav-links">
+                <li class="transition"><a class="nav-link">LE FESTIVAL</a></li>
+                <li class="transition"><a class="nav-link">LES FILMS</a></li>
+                <li class="transition"><a class="nav-link">RESERVER</a></li>
+                <li class="transition"><a class="nav-link">CONTACT</a></li>
+            </ul>
+            <div class="glow-border"></div>
+        </div>
         <!-- <meter id="progression" value="1" min="0" max="100"></meter> -->
         <!-- <progress id="progress" value="1" max="100"></progress> -->
-        <main class="main">
-
-        </main>
-        <aside class="main">
-            <label for="search-movie">Nos films</label>
-            <input id="search-movie" type="search" placeholder="Cherchez un film ...">
-        </aside>
+        <div class="main-content">
+            <main class="main">
+                Main part
+            </main>
+            <aside class="main">
+                <div class="search">
+                    <label class="glowy" for="search-movie">Nos films</label>
+                    <input class="glowy" id="search-movie" type="search" placeholder="Cherchez un film ...">
+                </div>
+            </aside>
+        </div>
         <footer>
             <address></address>
-        </footer>
+        </footer></div>
     </body>
 </html>
