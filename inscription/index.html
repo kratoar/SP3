@@ -2,40 +2,87 @@
 <html>
     <head>
         <title>Les Films de Plein Air</title>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="description" content="Festival de films d'auteurs">
         <meta name="keywords" content="festival, festivals, films, film, auteur, auteurs">
         <meta name="author" content="Maël FALLET">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <base href="/" target="_self">
+        <base href="../" target="_self">
         <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
         <div class="white-mask"></div>
         <div class="black-mask background-image"></div>
         <header>
-                <h1 class="home-logo neon"><a href="/">Les Films de Plein Air</a></h1>
+                <h1 class="home-logo neon"><a href="./index.html">Les Films de Plein Air</a></h1>
         </header>
         <div class="main-nav">
             <ul class="nav-links">
-                <li class="transition"><a href="/festival" class="nav-link transition">LE FESTIVAL</a></li>
-                <li class="transition"><a href="/films" class="nav-link transition">LES FILMS</a></li>
-                <li class="transition"><a href="/reserver" class="nav-link transition">RESERVER</a></li>
-                <li class="transition"><a href="/contact" class="nav-link transition">CONTACT</a></li>
-                <li class="transition"><a href="/inscription" class="nav-link transition current-page">INSCRIPTION</a></li>
+                <li class="transition"><a href="./festival/index.html" class="nav-link transition">LE FESTIVAL</a></li>
+                <li class="transition"><a href="./films/index.html" class="nav-link transition">LES FILMS</a></li>
+                <li class="transition"><a href="./reserver/index.html" class="nav-link transition">RESERVER</a></li>
+                <li class="transition"><a href="./contact/index.html" class="nav-link transition">CONTACT</a></li>
+                <li class="transition"><a href="./inscription/index.html" class="nav-link transition current-page">INSCRIPTION</a></li>
             </ul>
             <div class="glow-border"></div>
         </div>
         <!-- <meter id="progression" value="1" min="0" max="100"></meter> -->
         <!-- <progress id="progress" value="1" max="100"></progress> -->
         <div class="main-content">
-            <main class="main">
-                Page d'inscription
+            <main class="main signin">
+                <div class="form-title">Inscription</div>
+                <form action="" type="post" target="_self">
+                    <div class="col-2">
+                        <div class="col-left">
+                            <label for="firstname">Prénom</label>
+                            <input required class="transition" id="firstname" name="firstname" type="text" default=""/>
+                        </div>
+                        <div class="col-2-divider"></div>
+                        <div class="col-right">
+                            <label for="lastname">Nom de famille</label>
+                            <input required class="transition" id="lastname" name="lastname" type="text" default=""/>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="col-left">
+                            <label for="mail">Adresse de messagerie</label>
+                            <input required class="transition" id="mail" name="mail" type="email" default=""/>
+                        </div>
+                        <div class="col-2-divider"></div>
+                        <div class="col-right">
+                            <label for="telephone">Numéro</label>
+                            <input class="transition" id="telephone" name="telephone" type="tel" default=""/>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <a href="/" class="to-signup col-left transition">Vous avez déjà un compte ?</a>
+                        <button class="col-right transition" type="submit">Inscription</button>
+                    </div>
+                </form>
             </main>
             <aside class="main">
                 <div class="search">
                     <label class="glowy" for="search-movie">Nos films</label>
                     <input class="glowy" id="search-movie" type="search" placeholder="Cherchez un film ...">
+                </div>
+                <div class="events">
+                    <div class="event-animation">
+                        <div class="event contain event-1 background-image transition">
+                            <div class="event-name transition">Événement 1</div>
+                        </div>
+                        <div class="event contain event-2 background-image transition">
+                            <div class="event-name transition">Événement 2</div>
+                        </div>
+                        <div class="event contain event-3 background-image transition">
+                            <div class="event-name transition">Événement 3</div>
+                        </div>
+                        <div class="event contain event-4 background-image transition">
+                            <div class="event-name transition">Événement 4</div>
+                        </div>
+                        <div class="event contain event-5 background-image transition">
+                            <div class="event-name transition">Événement 5</div>
+                        </div>
+                    </div>
                 </div>
             </aside>
         </div>
