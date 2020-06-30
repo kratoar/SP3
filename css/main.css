@@ -1,14 +1,22 @@
+/* Les mettre de base en position absolute avec le conteneur 
+div.main-content en position relative */
 /* VARIABLES */
 
 :root {
     --body-width: calc(100vw - 36px);
-    --body-height: calc(100vh - 36px);
+    --body-height: calc(100% - 36px);
     --main-width: calc((var(--body-width) * 0.7) - 20px);
     --aside-width: calc(var(--body-width) * 0.3);
     --a4-ratio-w: (1 + 210/297);
     --a4-ratio-h: (1 + 297/210);
     --col-3-w: calc((var(--main-width) / 3) - 20px);
     --custom-blue: #3ecae8;
+}
+
+@media all and ( max-width: 999px) {
+    :root {
+        --main-width: calc(var(--body-width) - 20px);
+    }
 }
 
 /* FONTS */
@@ -147,7 +155,6 @@
     right: 0;
 }
 
-
 /* BODY */
 
 body {
@@ -156,18 +163,47 @@ body {
     margin: 8px;
     border: 6px solid black;
     padding: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     font-family: Roboto;
+    overflow-y: scroll;
+}
+
+body * {
+    font-size: 0;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+/* ERROR SIZE */
+.error-size {
+    display: none;
+}
+
+@media all and ( max-width: 248px) {
+    body * {
+        word-break: break-word;
+    }
+
+    div.main-content main.main,
+    div.main-content aside.main {
+        display: none;
+    }
+
+    .error-size {
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        background-color: #000000BB;
+        padding: 10px;
+        color: white;
+    }
 }
 
 /* HEADER */
 
 header {
-    position: fixed;
-    top: 18px;
-    left: 18px;
+    position: relative;
     height: 50px;
     width: var(--body-width);
     background-color: #000000BB;
@@ -193,7 +229,7 @@ header > h1 > a {
     z-index: 2;
 }
 
-@media all and (max-width: 499px){
+@media all and ( max-width: 499px) {
     header {
         position: relative;
         width: 100%;
@@ -204,6 +240,7 @@ header > h1 > a {
     header,
     header > h1 {
         min-height: 45px;
+        height: max-content;
     }
 }
 
@@ -212,8 +249,8 @@ header > h1 > a {
 .white-mask {
     background-color: transparent;
     position: absolute;
-    width: var(--body-width);
-    height: var(--body-height);
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
     top: 0;
     left: 0;
     border: 4px solid white;
@@ -232,11 +269,24 @@ header > h1 > a {
     z-index: 1;
 }
 
+/* PLACEHOLDER */
+
+*::placeholder {
+    text-align: left;
+    font-size: 12px;
+    font-family: Roboto;
+}
+
+*::placeholder {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* NAV */
 
 .main-nav {
     position: relative;
-    margin-top: 50px;
     min-height: 60px;
     height: max-content;
     z-index: 1;
@@ -294,7 +344,7 @@ header > h1 > a {
     filter: blur(1px);
 }
 
-@media all and (max-width: 499px){
+@media all and ( max-width: 499px) {
     .main-nav {
         margin-top: 0;
     }
@@ -302,13 +352,42 @@ header > h1 > a {
 
 /* MAIN, ASIDE */
 
+@media all and ( max-width: 999px) {
+    div.main-content main.main,
+    div.main-content aside.main {
+        position: relative;
+    }
+
+    div.main-content main.main {
+        left: 0;
+        width: calc(100% - 20px);
+    }
+
+    div.main-content aside.main {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        min-height: 50px;
+        padding-bottom: 0;
+        border-bottom: 1px solid #333333;
+    }
+
+    div.main-content aside.main div.search {
+        display: inline-block;
+        margin: 0;
+        height: 100%;
+    }
+
+    div.main-content aside.main div.events {
+        display: none;
+    }
+}
+
 main.main, aside.main {
     background-color: #000000BB;
-    display: inline-block;
-    vertical-align: top;
+    display: block;
     height: 100%;
-    min-height: calc(var(--body-height) - 130px);
-    max-height: calc(var(--body-height) - 130px);
 }
 
 /* MAIN */
@@ -317,31 +396,29 @@ main.main, aside.main {
     font-size: 0;
     z-index: 1;
     position: relative;
-    min-height: calc(var(--body-height) - 130px);
-    max-height: calc(var(--body-height) - 130px);
-}
-
-main {
-    width: var(--main-width);
-    padding: 10px;
 }
 
 main.main {
+    width: var(--main-width);
+    padding: 10px;
     color: white;
     font-size: 16px;
     font-weight: bold;
-    min-height: calc(var(--body-height) - 130px);
-    max-height: calc(var(--body-height) - 130px);
-    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    display: block;
 }
 
 /* ASIDE */
 
-aside {
+aside.main {
     width: var(--aside-width);
-    position: relative;
+    height: calc(100% - 20px);
     overflow-x: hidden;
     padding-bottom: 20px;
+    top: 0;
+    right: 0;
+    position: absolute;
 }
 
 aside.main div.search {
@@ -366,10 +443,7 @@ aside.main div.search input {
     padding: 5px 7px;
     background-image: linear-gradient(135deg, rgba(255, 192, 203, 0.3), rgba(70, 130, 180, 0.3));
     margin-left: 10px;
-}
-
-aside.main div.search input::placeholder {
-    text-align: left;
+    font-size: 15px;
 }
 
 @keyframes events-carousel {
@@ -426,6 +500,33 @@ aside.main div.events div.event-animation div.event div.event-name:hover {
     color: #ffffff;
 }
 
+@media all and ( max-width: 999px) {
+    aside.main div.search label {
+        display: none;
+    }
+    
+    aside.main div.search input {
+        max-width: calc(100% - (20px + 5%));
+        width: 200px;
+        margin: 0 auto;
+        left: calc(10px + 5%);
+        position: relative;
+        top: 25%;
+    }
+    
+    aside.main div.search input:focus {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media all and ( max-width: 255px) {
+    aside.main div.search input {
+        width: calc(100% - (20px + 5%));
+        margin: 0 auto;
+    }
+}
+
 /* Faire un keyframe et l'appeler seulement dans active */
 /* pour que le trigger ne se déclenche qu'au clic, comme */
 /* ça on peut faire un carousel, un accordéon et peut-être */
@@ -461,6 +562,7 @@ main.home .home-presentation p {
     margin-top: 0;
     border: 0;
     text-align: justify;
+    font-size: 12px;
 }
 
 main.home .home-divider {
@@ -613,6 +715,20 @@ main.home .movies-presentation .back-pic:nth-child(13) {
     transform: translateX(0) translateY(0);
 }
 
+@media all and ( max-width: 449px) {
+    main.home .home-pic-txt {
+        width: 100%;
+        margin-right: 0;
+        float: unset;
+        background-size: contain;
+        height: calc(100vw - 86px);
+    }
+
+    main.home .movies-presentation .pic {
+        opacity: 0.3;
+    }
+}
+
 /* FESTIVAL */
 
 main.festival {
@@ -625,7 +741,8 @@ main.festival > * {
 }
 
 main.festival .festival-line {
-    height: 200px;
+    font-size: 0;
+    height: max-content;
     display: block;
     margin-bottom: 15px;
     position: relative;
@@ -634,42 +751,51 @@ main.festival .festival-line {
 main.festival .festival-pic {
     background-image: url(../public/icos/photo.svg);
     height: 200px;
-    width: 30%;
+    width: 200px;
     display: inline-block;
     margin: 0 auto;
 }
 
-main.festival .festival-line:nth-child(2n - 1) .festival-pic {
+main.festival .festival-line:nth-child(4n - 3) .festival-pic {
     float: left;
+    margin-right: 20px;
 }
 
-main.festival .festival-line:nth-child(2n) .festival-pic {
+main.festival .festival-line:nth-child(4n - 1) .festival-pic {
     float: right;
+    margin-left: 20px;
 }
 
 main.festival .festival-txt {
     text-align: justify;
-    display: inline-block;
+    position: relative;
+    display: block;
     font-size: 12px;
-    width: calc(70% - 20px);
-}
-
-main.festival .festival-line:nth-child(2n - 1) .festival-txt {
-    margin-left: 20px;
-}
-
-main.festival .festival-line:nth-child(2n) .festival-txt {
-    margin-right: 20px;
+    width: calc(100% - 20px);
+    min-height: 200px;
 }
 
 main.festival .festival-divider {
-    position: absolute;
-    top: 200px;
-    left: 5%;
-    width: 90%;
+    position: relative;
+    width: calc(100% - 80px);
     height: 3px;
     background-color: grey;
     border-radius: 50%;
+}
+
+@media all and ( max-width: 449px) {
+    main.festival .festival-pic {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        float: unset;
+        background-size: contain;
+        height: calc(100vw - 86px);
+    }
+
+    main.festival .festival-txt {
+        width: 100%;
+    }
 }
 
 /* FILMS */
@@ -679,38 +805,30 @@ main.movies {
 }
 
 main.movies > * {
-    width: 95%;
     margin: 0 auto 20px;
+    position: relative;
+}
+
+main.movies .movies-list {
+    font-size: 0;
 }
 
 main.movies .movie-card {
     height: max-content;
     background-color: rgba(255, 255, 255, 0.03);
-    width: calc((100% / 3) - 22px);
+    width: 200px;
     display: inline-block;
     padding: 0;
     font-size: 0;
-    margin: 0 0 15px 0;
+    margin: 0 15px 15px 0;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
 }
-
-main.movies .movie-card:nth-child(3n - 2) {
-    margin-right: 10px;
-}
-
-main.movies .movie-card:nth-child(3n - 1) {
-    
-}
-
-main.movies .movie-card:nth-child(3n) {
-    margin-left: 10px;
-}
-
 
 main.movies .movie-pic {
     background-image: url(../public/icos/movie-poster.svg);
     width: 90%;
-    height: calc(var(--a4-ratio-h) * var(--col-3-w) * 0.4);
+    height: 150px;
     position: relative;
     left: 5%;
 }
@@ -737,20 +855,34 @@ main.movies .movie-more:hover {
 main.movies .movie-title {
     font-size: 14px;
     position: absolute;
-    bottom: 30px;
-    left: 20px;
-    width: max-content;
+    bottom: 0;
+    left: -10px;
+    width: 110px;
     padding: 4px 20px;
     background-color: black;
-    border-radius: 7px;
+    border-radius: 7px 7px 7px 0;
     line-height: 1;
     letter-spacing: 2px;
     border: 2px solid red;
     box-shadow: red 1px 1px 5px;
+    height: 20px;
 }
 
 main.movies .movie-title:hover {
-    transform: scale(1.3);
+    width: calc(100% - 24px);
+    left: -10px;
+    bottom: 0;
+    border-radius: 7px 7px 0 0;
+    height: 50px;
+}
+
+.movie-lil-synopsis {
+    margin-top: 15px;
+}
+
+main.movies .movie-title:hover .movie-lil-synopsis {
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 main.movies .movie-datas {
@@ -858,6 +990,72 @@ main.movies .movie-datas .share:hover {
     
 }
 
+@media all and ( max-width: 999px) {
+    div.main-content main.movies {
+        width: 853px;
+        /* 428px pour ((202 * 4/2) + 16) */
+        /* 18px pour body -> (margin + border + padding) / 2 */
+        padding: 10px calc(50vw - (428px + 18px));
+        margin: 0 auto;
+    }
+
+    main.movies .movie-card:nth-child(4n) {
+        margin-right: 0;
+    }
+}
+
+@media all and ( max-width: 908px) {
+    div.main-content main.movies {
+        width: 636px;
+        /* 319px pour ((202 * 3/2) + 16) */
+        /* 18px pour body -> (margin + border + padding) / 2 */
+        padding: 10px calc(50vw - (319px + 18px));
+        margin: 0 auto;
+    }
+
+    main.movies .movie-card:nth-child(4n) {
+        margin-right: 15px;
+    }
+
+    main.movies .movie-card:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+
+@media all and ( max-width: 691px) {
+    div.main-content main.movies {
+        width: 419px;
+        /* 210px pour ((202 * 2/2) + 16) */
+        /* 18px pour body -> (margin + border + padding) / 2 */
+        padding: 10px calc(50vw - (210px + 18px));
+        margin: 0 auto;
+    }
+
+    main.movies .movie-card:nth-child(3n),
+    main.movies .movie-card:nth-child(4n) {
+        margin-right: 15px;
+    }
+
+    main.movies .movie-card:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+
+@media all and ( max-width: 473px) {
+    div.main-content main.movies {
+        width: 202px;
+        /* 101px pour (202 / 2) */
+        /* 18px pour body -> (margin + border + padding) / 2 */
+        padding: 10px calc(50vw - (101px + 18px));
+        margin: 0 auto;
+    }
+    
+    main.movies .movie-card:nth-child(n) {
+        margin-right: 0;
+        display: block;
+        margin: 0 auto;
+    }
+}
 
 /* RESERVER */
 
@@ -869,6 +1067,19 @@ main.book > * {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media all and ( max-width: 499px) {
+    main.book .col-2 .col-left,
+    main.book .col-2 .col-right {
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+
+    main.book .col-2 > button[type="submit"] {
+        margin-top: 10px;
+    }
 }
 
 /* CONTACT */
@@ -903,6 +1114,20 @@ main.signin > * {
 main.signin form #firstname,
 main.signin form #lastname {
     
+}
+
+@media all and ( max-width: 499px) {
+    main.signin .col-2 .col-left,
+    main.signin .col-2 .col-right {
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+
+    main.signin .col-2 > button[type="submit"] {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
 }
 
 /* FORM */
@@ -1018,7 +1243,6 @@ form label.checkbox-label {
 }
 
 form button[type="submit"] {
-    float: right;
     width: 50%;
     margin: 0 0 20px 0;
     cursor: pointer;
@@ -1026,4 +1250,20 @@ form button[type="submit"] {
     right: 0;
     font-size: 16px;
     font-weight: bold;
+}
+
+main.book form button[type="submit"] {
+    float: right;
+}
+
+main.contact form button[type="submit"] {
+    left: 50%;
+}
+
+@media all and ( max-width: 499px) {
+    main.contact form button[type="submit"] {
+        left: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
 }

@@ -29,33 +29,12 @@
         <!-- <meter id="progression" value="1" min="0" max="100"></meter> -->
         <!-- <progress id="progress" value="1" max="100"></progress> -->
         <div class="main-content">
-            <main class="main contact">
-                <div class="form-title">Nous contacter</div>
-                <form action="" type="post" target="_self">
-                    <label for="raison">Objet</label>
-                    <select required class="transition" id="raison" name="raison">
-                        <option class="transition" selected disabled value="">Choisissez une option</option>
-                        <option class="transition" value="infos">Informations</option>
-                        <option class="transition" value="book">Réservation</option>
-                        <option class="transition" value="account">Compte</option>
-                        <option class="transition" value="claim">Réclamation</option>
-                        
-                    </select>
-                    <label for="name">Nom</label>
-                    <input required class="transition" id="name" name="name" type="text" default=""/>
-                    <label for="mail">Adresse de messagerie</label>
-                    <input required class="transition" id="mail" name="mail" type="email" default=""/>
-                    <label for="telephone">Numéro</label>
-                    <input class="transition" id="telephone" name="telephone" type="tel" default=""/>
-                    <label for="message">Votre message</label>
-                    <textarea required class="transition" id="message" name="message" placeholder="" rows="5" maxlength="250" ></textarea>
-                    <button class="transition" type="submit">Envoyer</button>
-                </form>
-            </main>
             <aside class="main">
                 <div class="search">
-                    <label class="glowy" for="search-movie">Nos films</label>
-                    <input class="glowy" id="search-movie" type="search" placeholder="Cherchez un film ...">
+                    <label class="glowy" for="search-movie">
+                        Nos films
+                    </label>
+                    <input class="glowy transition" id="search-movie" type="search" placeholder="Cherchez un film">
                 </div>
                 <div class="events">
                     <div class="event-animation">
@@ -77,6 +56,32 @@
                     </div>
                 </div>
             </aside>
+            <main class="main contact">
+                <div class="form-title">Nous contacter</div>
+                <form action="" type="post" target="_self">
+                    <label for="raison">Objet</label>
+                    <select required class="transition" id="raison" name="raison">
+                        <option class="transition" selected disabled value="">Choisissez une option</option>
+                        <option class="transition" value="infos">Informations</option>
+                        <option class="transition" value="book">Réservation</option>
+                        <option class="transition" value="account">Compte</option>
+                        <option class="transition" value="claim">Réclamation</option>
+                        
+                    </select>
+                    <label for="name">Nom</label>
+                    <input required class="transition" id="name" name="name" type="text" default=""/>
+                    <label for="mail">Adresse de messagerie</label>
+                    <input required class="transition" id="mail" name="mail" type="email" default=""/>
+                    <label for="telephone">Numéro</label>
+                    <input class="transition" id="telephone" name="telephone" type="tel" default=""/>
+                    <label for="message">Votre message</label>
+                    <textarea required class="transition" id="message" name="message" placeholder="Entrez votre message ici..." rows="5" maxlength="250" ></textarea>
+                    <button class="transition" type="submit">Envoyer</button>
+                </form>
+            </main>
+            <div class="error-size">
+                Le site ne prend pas en charge les résolutions inférieurs à 248 pixels de largeur
+            </div>
         </div>
         <footer>
             <address></address>
