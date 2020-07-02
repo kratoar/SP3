@@ -74,14 +74,14 @@ div.main-content en position relative */
 }
 
 *::-webkit-scrollbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: #000000b3;
     border-radius: 5px;
     width: 5px;
     box-shadow: var(--custom-blue) 0px 0px 20px;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.7);
+    background: #ffffffb3;
 }
 
 .col,
@@ -121,7 +121,7 @@ div.main-content en position relative */
 .col-2-divider {
     position: absolute;
     left: calc((var(--main-width) * 0.5) - 2px);
-    background-color: grey;
+    background-color: #808080;
     width: 4px;
     filter: blur(1px);
     border-radius: 50%;
@@ -165,7 +165,7 @@ body {
     height: var(--body-height);
     min-height: calc(100vh - 36px);
     margin: 8px;
-    border: 6px solid black;
+    border: 6px solid #000000;
     padding: 4px;
     position: relative;
     font-family: Roboto;
@@ -200,7 +200,8 @@ body * {
         text-align: center;
         background-color: #000000BB;
         padding: 10px;
-        color: white;
+        color: #ffffff;
+        min-height: calc(100vh - 166px);
     }
 }
 
@@ -218,8 +219,8 @@ header > h1 {
     margin: 0;
     text-align: center;
     height: 45px;
-    box-shadow: red 0px 7px 13px;
-    filter: drop-shadow(15px 15px 10px pink);
+    box-shadow: #ff0000 0px 7px 13px;
+    filter: drop-shadow(15px 15px 10px #ffc0cb);
     position: relative;
     z-index: 2;
     padding: 5px;
@@ -227,7 +228,7 @@ header > h1 {
 
 header > h1 > a {
     text-decoration: none;
-    color: pink;
+    color: #ffc0cb;
     font-size: 23px;
     letter-spacing: 9px;
     z-index: 2;
@@ -257,7 +258,7 @@ header > h1 > a {
     height: calc(100% - 8px);
     top: 0;
     left: 0;
-    border: 4px solid white;
+    border: 4px solid #ffffff;
     z-index: 0;
 }
 
@@ -339,7 +340,7 @@ input {
 
 .nav-link {
     padding: 1px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #ffffff;
 }
 
 .nav-link:hover {
@@ -419,7 +420,7 @@ main.main, aside.main {
 main.main {
     width: var(--main-width);
     padding: 10px;
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     font-weight: bold;
     top: 0;
@@ -446,7 +447,7 @@ aside.main div.search {
 
 aside.main div.search label {
     font-size: 13px;
-    color: white;
+    color: #ffffff;
     letter-spacing: 1px;
     margin-left: 17px;
 }
@@ -458,7 +459,7 @@ aside.main div.search input {
     box-shadow: none;
     border: none;
     padding: 5px 7px;
-    background-image: linear-gradient(135deg, rgba(255, 192, 203, 0.3), rgba(70, 130, 180, 0.3));
+    background-image: linear-gradient(135deg, #ffc0cb4d, #4682b44d);
     margin-left: 10px;
     font-size: 15px;
     min-height: 25px;
@@ -499,7 +500,7 @@ aside.main div.events div.event-animation div.event {
     background-image: url(../public/icos/photo.svg);
     background-size: 20% 120px;
     display: inline-block;
-    background-color: rgba(51, 51, 51, 0.3);
+    background-color: #3333334d;
     position: relative;
 }
 
@@ -563,7 +564,7 @@ main.home .home-presentation {
 }
 
 main.home .home-pic-txt::before {
-    color: orange;
+    color: #ffa500;
 }
 
 main.home .home-pic-txt {
@@ -585,7 +586,7 @@ main.home .home-presentation p {
 main.home .home-divider {
     width: 90%;
     display: block;
-    background-color: grey;
+    background-color: #808080;
     height: 3px;
     border-radius: 50%;
     margin: 10px auto;
@@ -606,7 +607,7 @@ main.home .movies-presentation *{
 main.home .movies-presentation button {
     margin: 0 auto;
     border: none;
-    box-shadow: pink 1px 1px 3px;
+    box-shadow: #ffc0cb 1px 1px 3px;
     position: relative;
     z-index: 2;
     border: none;
@@ -620,7 +621,7 @@ main.home .movies-presentation button a {
     z-index: 2;
     background-color: var(--custom-blue);
     border: none;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-size: 15px;
 }
@@ -797,7 +798,7 @@ main.festival .festival-divider {
     position: relative;
     width: calc(100% - 80px);
     height: 3px;
-    background-color: grey;
+    background-color: #808080;
     border-radius: 50%;
 }
 
@@ -833,13 +834,13 @@ main.movies .movies-list {
 
 main.movies .movie-card {
     height: max-content;
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: #ffffff08;
     width: 200px;
     display: inline-block;
     padding: 0;
     font-size: 0;
     margin: 0 15px 15px 0;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid #ffffff4d;
     position: relative;
 }
 
@@ -877,12 +878,12 @@ main.movies .movie-title {
     left: -10px;
     width: 110px;
     padding: 4px 20px;
-    background-color: black;
+    background-color: #000000;
     border-radius: 7px 7px 7px 0;
     line-height: 1;
     letter-spacing: 2px;
-    border: 2px solid red;
-    box-shadow: red 1px 1px 5px;
+    border: 2px solid #ff0000;
+    box-shadow: #ff0000 1px 1px 5px;
     height: 20px;
 }
 
@@ -905,7 +906,7 @@ main.movies .movie-title:hover .movie-lil-synopsis {
 
 main.movies .movie-datas {
     padding: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff1a;
     border: 1px solid #ffffff;
     width: calc(100% - 10px);
     position: relative;
@@ -1271,7 +1272,7 @@ form .col-2 a.to-signup {
 }
 
 form .col-2 a.to-signup:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff1a;
     text-decoration: underline;
 }
 
